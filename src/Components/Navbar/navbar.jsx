@@ -7,15 +7,26 @@ const Navbar = () => {
         <a className="navbar-brand text-white">Solomon</a>
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link text-white">Home</a>
+            <a href="#home" className="nav-link text-white">
+              Home
+            </a>
           </li>
 
           <li className="nav-item text-white">
-            <a className="nav-link text-white">About</a>
+            <a href="#about" className="nav-link text-white">
+              About
+            </a>
+          </li>
+          <li className="nav-item text-white">
+            <a href="#skills" className="nav-link text-white">
+              Skills
+            </a>
           </li>
 
           <li className="nav-item text-white">
-            <a className="nav-link text-white">Projects</a>
+            <a href="#projects" className="nav-link text-white">
+              Projects
+            </a>
           </li>
 
           <li className="nav-item text-white">

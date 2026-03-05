@@ -1,6 +1,6 @@
 const Contact = () => {
   return (
-    <div className="container mt-5" id="contact">
+    <div id="contact" className="container mt-5" id="contact">
       <h2 className="text-center mb-4">Contact Me</h2>
 
       <div className="row justify-content-center">

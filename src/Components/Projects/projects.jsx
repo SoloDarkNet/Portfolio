@@ -7,7 +7,7 @@ const Projects = () => {
   console.log(showCredentials);
 
   return (
-    <div className="container mt-5">
+    <div id="projects" className="container mt-5">
       <h2 className="text-center mb-5">My Projects</h2>
 
       <div className="row">

@@ -1,6 +1,6 @@
 const Skills = () => {
   return (
-    <div className="container mt-5">
+    <div id="skills" className="container mt-5">
       <h2 className="text-center">Skills</h2>
       <ul className="list-group mt-4">
         <li className="list-group-item">HTML</li>
