@@ -3,7 +3,7 @@ import eventImg from "../../assets/event.png";
 import "./index.css";
 
 const Projects = () => {
-  const [showCredentials, setShowCredentials] = useState(false);
+  const [showCredentials, setShowCredentials] = useState(null);
   console.log(showCredentials);
 
   return (
@@ -41,11 +41,11 @@ const Projects = () => {
                 className="btn btn-info ms-2"
                 data-bs-toggle="modal"
                 data-bs-target="#applicationCredentialsModal"
-                onClick={() => setShowCredentials(!showCredentials)}
+                onClick={() => setShowCredentials(2)}
               >
                 Application Credentials
               </button>
-              {showCredentials && (
+              {showCredentials === 2 && (
                 <div className="text-center mt-3">
                   <p>Username: rahul</p>
                   <p>Password: rahul@123</p>
@@ -85,11 +85,11 @@ const Projects = () => {
                 className="btn btn-info ms-2"
                 data-bs-toggle="modal"
                 data-bs-target="#applicationCredentialsModal"
-                onClick={() => setShowCredentials(!showCredentials)}
+                onClick={() => setShowCredentials(1)}
               >
                 Application Credentials
               </button>
-              {showCredentials && (
+              {showCredentials === 1 && (
                 <div className="text-center mt-3">
                   <p>Username: rahul</p>
                   <p>Password: rahul@123</p>
