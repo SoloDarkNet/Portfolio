@@ -1,6 +1,10 @@
-import Hero from "../Hero/hero";
+import { useContext } from "react";
+import { AppContext } from "../../Context/context";
 
 const Navbar = () => {
+const {darkMode, setDarkMode} = useContext(AppContext);
+
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-dark">
       <div className="container">
@@ -34,6 +38,7 @@ const Navbar = () => {
               Contact
             </a>
           </li>
+          <button onClick={setDarkMode(true)}>Toggle Theme</button>
         </ul>
       </div>
     </nav>

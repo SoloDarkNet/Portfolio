@@ -4,6 +4,7 @@ import "./index.css";
 
 const Projects = () => {
   const [showCredentials, setShowCredentials] = useState(null);
+  const [showModel, setShowModel] = useState(false);
   console.log(showCredentials);
 
   return (
@@ -12,7 +13,7 @@ const Projects = () => {
 
       <div className="row">
         <div className="col-md-4 mb-4">
-          <div className="card shadow">
+          <div className="card shadow card">
             <img
               src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-login-img.png"
               className="card-img-top card_image"
@@ -41,11 +42,14 @@ const Projects = () => {
                 className="btn btn-info ms-2"
                 data-bs-toggle="modal"
                 data-bs-target="#applicationCredentialsModal"
-                onClick={() => setShowCredentials(2)}
+                onClick={() => {
+                  setShowCredentials(2);
+                  setShowModel(true);
+                }}
               >
                 Application Credentials
               </button>
-              {showCredentials === 2 && (
+              { setShowModel && showCredentials === 2 && (
                 <div className="text-center mt-3">
                   <p>Username: rahul</p>
                   <p>Password: rahul@123</p>
@@ -85,11 +89,11 @@ const Projects = () => {
                 className="btn btn-info ms-2"
                 data-bs-toggle="modal"
                 data-bs-target="#applicationCredentialsModal"
-                onClick={() => setShowCredentials(1)}
+                onClick={() => {setShowCredentials(1); setShowModel(true);}}
               >
                 Application Credentials
               </button>
-              {showCredentials === 1 && (
+              {showModel && showCredentials === 1 && (
                 <div className="text-center mt-3">
                   <p>Username: rahul</p>
                   <p>Password: rahul@123</p>
