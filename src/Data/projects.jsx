@@ -25,7 +25,7 @@ const project = [
     title: "Event Management System",
     description: "Full Stack CRUD System",
     github: "https://github.com/SoloDarkNet/Event-Management-Application",
-    live: "https://event-management-system.onrender.com/",
+    live: "https://events-management-applications.onrender.com/",
     image: eventImg,
     credential: false,
   },

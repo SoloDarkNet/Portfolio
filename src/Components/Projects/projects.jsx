@@ -6,7 +6,7 @@ const Projects = () => {
   return (
     <div className="container mt-5">
       <h2 className="text-center mb-5">My Projects</h2>
-      <div className="row">
+      <div className="projects-grid">
         {project.map((project) => (
           <ProjectCard key={project.id} {...project} />
         ))}

@@ -1,6 +1,8 @@
+import {Link} from 'react-router-dom';
 const Skills = () => {
   return (
-    <div id="skills" className="container mt-5">
+    <Link to='/skills' style={{ textDecoration: 'none', color: 'inherit' }}>
+    <div className="container mt-5">
       <h2 className="text-center">Skills</h2>
       <ul className="list-group mt-4">
         <li className="list-group-item">HTML</li>
@@ -14,6 +16,7 @@ const Skills = () => {
         <li className="list-group-item">SQL</li>
       </ul>
     </div>
+    </Link>
   );
 };
 export default Skills;

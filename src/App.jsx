@@ -6,6 +6,7 @@ import Contact from "./Components/Contacts/contact";
 import Footer from "./Components/Footer";
 import About from "./Components/About/about";
 import { AppContext } from "./Context/context";
+import Skills from "./Components/Skills/skills";
 import "./App.css";
 import Home from "./Components/Home/home";
 
@@ -18,6 +19,7 @@ const App = () => {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/projects" element={<Projects />} />
+        <Route exact path='/skills' element={<Skills />} />
         <Route exact path="/contact" element={<Contact />} />
       </Routes>
       <Footer />

@@ -3,11 +3,11 @@
     gap: 1rem;
   }
   button {
-    margin-top: 10px;
+    margin-top: 11px;
   }
   .container1 {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
   }
 }

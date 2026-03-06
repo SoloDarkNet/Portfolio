@@ -27,7 +27,7 @@ const ProjectCard = ({
             </a>
             {credential && (
               <button
-                className="btn btn-info ml-2 ms-2"
+                className="btn btn-info ml-2 ms-2 mt-2"
                 onClick={() => setShowCredentials(!showCredentials)}
               >
                 Application Credential
