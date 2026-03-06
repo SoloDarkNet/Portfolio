@@ -45,15 +45,6 @@ const Navbar = () => {
 
           <li className="nav-item text-white">
             <Link
-              to="/projects"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              Projects
-            </Link>
-          </li>
-
-          <li className="nav-item text-white">
-            <Link
               to="/contact"
               style={{ textDecoration: "none", color: "inherit" }}
             >

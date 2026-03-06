@@ -1,0 +1,13 @@
+@media screen and (min-width: 768px) {
+  .btn-gap {
+    gap: 1rem;
+  }
+  button {
+    margin-top: 10px;
+  }
+  .container1 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
