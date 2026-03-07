@@ -1,6 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import "./hero.css";
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const downloadResume = () => {
+    const link = document.createElement("a");
+    link.href = "/resume.pdf";
+    link.download = "resume.pdf";
+    link.click();
+
+    setTimeout(() => {
+      navigate("/");
+    }, 500);
+  };
   return (
     <div id="home" className="container text-center mt-5">
       <motion.h1
@@ -22,13 +35,22 @@ const Hero = () => {
 
       <Link to="/projects" style={{ textDecoration: "none", color: "inherit" }}>
         <motion.button
-          className="btn btn-primary"
+          className="btn-color"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
           View My Projects
         </motion.button>
       </Link>
+
+      <motion.button
+        onClick={downloadResume}
+        className="btn-color ms-5"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        Download Resume
+      </motion.button>
     </div>
   );
 };

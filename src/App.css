@@ -1,11 +1,11 @@
 .light {
-  background: #ffffff;
+  background: #f5f7fa;
   color: #222;
   transition: 0.3s;
 }
 
 .dark {
-  background: #121212;
+  background: linear-gradient(135deg, #0f2027, #242525, #0f2027);
   color: white;
   transition: 0.3s;
 }

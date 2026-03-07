@@ -9,3 +9,18 @@
     gap: 0.5rem;
   }
 }
+
+/* light mode */
+.navbar {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+}
+
+/* dark mode */
+.nav-dark {
+  background: linear-gradient(90deg, #020617, #1e40af);
+  color: white;
+}
+
+.icon-button {
+}

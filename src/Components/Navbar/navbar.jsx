@@ -7,7 +7,10 @@ const Navbar = () => {
   const { darkMode, setDarkMode } = useContext(AppContext);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+    <nav
+      className="navbar navbar-expand-lg"
+      style={{ backgroundColor: darkMode ? "navbar" : "nav-dark" }}
+    >
       <div className="container">
         <a className="navbar-brand text-white">Solomon</a>
         <ul className="navbar-nav listed-gap">
@@ -59,11 +62,12 @@ const Navbar = () => {
               fontSize: "20px",
               color: "white",
             }}
+            className="icon-button"
           >
             {darkMode ? (
-              <FaSun style={{ color: "yellow" }} />
+              <FaSun style={{ color: "yellow", fontSize: "25px" }} />
             ) : (
-              <FaMoon style={{ color: "#3a46cd" }} />
+              <FaMoon style={{ color: "#bdbdc6", fontSize: "25px" }} />
             )}
           </button>
         </ul>

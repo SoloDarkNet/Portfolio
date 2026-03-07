@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import Solomon from "../../assets/solomon.png";
 
 const About = () => {
   return (
     <Link to="/about" style={{ textDecoration: "none", color: "inherit" }}>
-      <div id="about" className="container mt-5">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.8 }}
+        id="about"
+        className="container mt-5"
+      >
         <h2 className="text-center mb-5">About Me</h2>
 
         <div className="row align-items-center">
@@ -35,7 +42,7 @@ const About = () => {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </Link>
   );
 };

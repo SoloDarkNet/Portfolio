@@ -1,5 +1,7 @@
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
+import { motion } from "framer-motion";
+import "./contact.css";
 
 const Contact = () => {
   const form = useRef();
@@ -23,7 +25,12 @@ const Contact = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.2, duration: 0.5 }}
+      className="container mt-5"
+    >
       <h2 className="text-center mb-4">Contact Me</h2>
 
       <div className="row justify-content-center">
@@ -36,6 +43,7 @@ const Contact = () => {
                 name="user_name"
                 className="form-control"
                 placeholder="Enter your name"
+                required
               />
             </div>
 
@@ -46,6 +54,7 @@ const Contact = () => {
                 name="user_email"
                 className="form-control"
                 placeholder="Enter your email"
+                required
               />
             </div>
 
@@ -56,16 +65,17 @@ const Contact = () => {
                 name="message"
                 rows="4"
                 placeholder="Enter your message"
+                required
               ></textarea>
             </div>
 
-            <button className="btn btn-primary w-100" type="submit">
+            <button className="btn-color w-100" type="submit">
               Send Message
             </button>
           </form>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

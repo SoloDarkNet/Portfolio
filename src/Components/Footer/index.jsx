@@ -1,6 +1,8 @@
+import "./footer.css";
+
 const Footer = () => {
   return (
-    <footer className="bg-dark text-white mt-5 p-4">
+    <footer className="footer-bg text-white mt-5 p-4">
       <div className="container text-center">
         <h5>Solomon</h5>
         <p>MERN Stack Developer</p>
