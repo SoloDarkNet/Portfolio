@@ -40,6 +40,10 @@ const About = () => {
               My goal is to create scalable, responsive and user-friendly web
               applications.
             </p>
+            <p>
+              I enjoy solving real-world problems and building scalable
+              applications.
+            </p>
           </div>
         </div>
       </motion.div>
