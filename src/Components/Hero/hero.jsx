@@ -63,7 +63,7 @@ const Hero = () => {
       </motion.button>
 
       <motion.button
-        className="btn-color ms-5"
+        className="btn-color btnColor ms-5 mt-4 me-4"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={gitHubLink}

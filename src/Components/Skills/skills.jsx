@@ -30,7 +30,7 @@ const Skills = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="container mt-5 skill-card"
+        className="container mt-5 skill-card div-card"
         style={{
           background: darkMode
             ? "linear-gradient(135deg, #0f2027, #203a43, #2c5364)"

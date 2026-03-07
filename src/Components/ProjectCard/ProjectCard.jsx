@@ -14,7 +14,7 @@ const ProjectCard = ({
   return (
     <div className="btn-gap container1">
       <div className="col-md-4 mb-4">
-        <div className="card">
+        <div className="card" style={{ background: "#c8e8e9" }}>
           <img src={image} className="card-img-top" alt={title} />
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
