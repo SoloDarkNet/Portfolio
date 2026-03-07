@@ -14,6 +14,16 @@ const Hero = () => {
       navigate("/");
     }, 500);
   };
+
+  const gitHubLink = () => {
+    const link = document.createElement("a");
+    link.href = "https://github.com/SoloDarkNet";
+    link.click();
+    setTimeout(() => {
+      navigate("/");
+    }, 500);
+  };
+
   return (
     <div id="home" className="container text-center mt-5">
       <motion.h1
@@ -50,6 +60,15 @@ const Hero = () => {
         whileTap={{ scale: 0.9 }}
       >
         Download Resume
+      </motion.button>
+
+      <motion.button
+        className="btn-color ms-5"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={gitHubLink}
+      >
+        GitHub
       </motion.button>
     </div>
   );
