@@ -55,6 +55,7 @@ const Skills = () => {
             scale: 1.05,
             background: "linear-gradient(135deg, #8b9dee, #8d6dae)",
           }}
+          whileTap={{ scale: 0.8 }}
         >
           <h3>Frontend</h3>
 
@@ -62,7 +63,7 @@ const Skills = () => {
             React <FaReact style={{ color: "#34c0c7", fontSize: "23px" }} />
           </p>
           <p>
-            HTML{" "}
+            HTML
             <FaHtml5 style={{ color: "rgb(207, 79, 79)", fontSize: "21px" }} />
           </p>
           <p>
@@ -79,6 +80,7 @@ const Skills = () => {
             scale: 1.05,
             background: "linear-gradient(45deg, #134e5e, #71b280)",
           }}
+          whileTap={{ scale: 0.8 }}
           style={{
             background: darkMode
               ? "linear-gradient(135deg, #85a9a8, #b2d2d3)"
@@ -106,6 +108,7 @@ const Skills = () => {
             scale: 1.05,
             background: "linear-gradient(135deg, #8054a5, #9587b2)",
           }}
+          whileTap={{ scale: 0.8 }}
           style={{
             background: darkMode
               ? "linear-gradient(135deg, #85a9a8, #b2d2d3)"
@@ -134,6 +137,7 @@ const Skills = () => {
               ? "linear-gradient(135deg, #85a9a8, #b2d2d3)"
               : "linear-gradient(135deg, #d3fbfb, #c9ecec)",
           }}
+          whileTap={{ scale: 0.8 }}
         >
           <h3>Tools</h3>
 
