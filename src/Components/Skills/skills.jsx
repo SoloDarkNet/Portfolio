@@ -137,10 +137,7 @@ const Skills = () => {
               ? "linear-gradient(135deg, #85a9a8, #b2d2d3)"
               : "linear-gradient(135deg, #d3fbfb, #c9ecec)",
           }}
-          whileTap={{
-            scale: 0.8,
-            background: "linear-gradient(45deg, #daab71, #f8e27f)",
-          }}
+          whileTap={{ scale: 0.8 }}
         >
           <h3>Tools</h3>
 
