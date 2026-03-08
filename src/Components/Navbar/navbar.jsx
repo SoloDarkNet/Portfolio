@@ -16,64 +16,66 @@ const WebNavbar = () => {
     >
       <div className="container">
         <a className="navbar-brand text-white">Solomon</a>
-        <ul className="navbar-nav listed-gap">
-          <li className="nav-item">
-            <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
-              Home
-            </Link>
-          </li>
+        <div className="d-flex">
+          <ul className="navbar-nav listed-gap">
+            <li className="nav-item">
+              <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+                Home
+              </Link>
+            </li>
 
-          <li className="nav-item text-white">
-            <Link
-              to="/about"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              About
-            </Link>
-          </li>
-          <li className="nav-item text-white">
-            <Link
-              to="/skills"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              Skills
-            </Link>
-          </li>
+            <li className="nav-item text-white">
+              <Link
+                to="/about"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                About
+              </Link>
+            </li>
+            <li className="nav-item text-white">
+              <Link
+                to="/skills"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                Skills
+              </Link>
+            </li>
 
-          <li className="nav-item text-white">
-            <Link
-              to="/projects"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              Projects
-            </Link>
-          </li>
+            <li className="nav-item text-white">
+              <Link
+                to="/projects"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                Projects
+              </Link>
+            </li>
 
-          <li className="nav-item text-white">
-            <Link
-              to="/contact"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              Contact
-            </Link>
-          </li>
-        </ul>
-        <button
-          onClick={() => setDarkMode(!darkMode)}
-          style={{
-            border: "none",
-            background: "transparent",
-            fontSize: "20px",
-            color: "white",
-          }}
-          className="icon-button"
-        >
-          {darkMode ? (
-            <FaSun style={{ color: "yellow", fontSize: "25px" }} />
-          ) : (
-            <FaMoon style={{ color: "#bdbdc6", fontSize: "25px" }} />
-          )}
-        </button>
+            <li className="nav-item text-white">
+              <Link
+                to="/contact"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                Contact
+              </Link>
+            </li>
+          </ul>
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            style={{
+              border: "none",
+              background: "transparent",
+              fontSize: "18px",
+              color: "white",
+            }}
+            className="icon-button ms-3"
+          >
+            {darkMode ? (
+              <FaSun style={{ color: "yellow", fontSize: "25px" }} />
+            ) : (
+              <FaMoon style={{ color: "#bdbdc6", fontSize: "25px" }} />
+            )}
+          </button>
+        </div>
       </div>
     </nav>
   );
