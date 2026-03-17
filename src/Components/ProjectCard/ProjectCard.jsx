@@ -36,7 +36,7 @@ const ProjectCard = ({
             {showCredentials && (
               <div className="text-center text-gray mt-3">
                 <p>Username: rahul</p>
-                <p>Password: rahul@123</p>
+                <p>Password: rahul@2021</p>
               </div>
             )}
           </div>
