@@ -7,7 +7,7 @@ const project = [
     github:
       "https://github.com/SoloDarkNet/Task-Manager-App",
     live: "https://task-manager-applications.onrender.com",
-    image: "https://ibb.co/B7GNDhq",
+    image: "https://image2url.com/r2/default/images/1773847369639-ce26a1e7-96fa-4648-a8b0-c63999f6b4e1.jpg",
    
   },
   {
