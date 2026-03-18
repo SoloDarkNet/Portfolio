@@ -6,7 +6,7 @@ const project = [
     description: "Full-stack Task Manager app with authentication, task CRUD, and filtering.",
     github:
       "https://github.com/SoloDarkNet/Task-Manager-App",
-    live: "https://task-manager-applications.onrender.com",
+    live: "task-manager-app-gold-nine.vercel.app",
     image: "https://image2url.com/r2/default/images/1773847369639-ce26a1e7-96fa-4648-a8b0-c63999f6b4e1.jpg",
    
   },
