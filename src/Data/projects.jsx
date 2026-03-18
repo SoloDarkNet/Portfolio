@@ -1,7 +1,17 @@
 import eventImg from "../assets/event.png";
 const project = [
-  {
+   {
     id: 1,
+    title: "Task Manager App",
+    description: "Full-stack Task Manager app with authentication, task CRUD, and filtering.",
+    github:
+      "https://github.com/SoloDarkNet/Task-Manager-App",
+    live: "https://task-manager-applications.onrender.com",
+    image: "https://assets.ccbp.in/frontend/react-js/nxt-trendz-login-img.png",
+   
+  },
+  {
+    id: 2,
     title: "Nxt Trendz",
     description: "E-commerce web app",
     github:
@@ -11,7 +21,7 @@ const project = [
     credential: true,
   },
   {
-    id: 2,
+    id: 3,
     title: "Jobby App",
     description: "Job Search Platform",
     github: "https://github.com/SoloDarkNet/Jobby-App",
@@ -21,7 +31,7 @@ const project = [
   },
 
   {
-    id: 3,
+    id: 4,
     title: "Event Management System",
     description: "Full Stack CRUD System",
     github: "https://github.com/SoloDarkNet/Event-Management-Application",
@@ -30,7 +40,7 @@ const project = [
     credential: false,
   },
   {
-    id: 4,
+    id: 5,
     title: "Movies App",
     description: "Movie Search Application",
     github: "https://github.com/SoloDarkNet/Enhancement-of-Movie-Database-App",
