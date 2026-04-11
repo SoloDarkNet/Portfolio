@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import Navbar from "./Components/Navbar/navbar";
 import Projects from "./Components/Projects/projects";
@@ -12,16 +12,29 @@ import Home from "./Components/Home/home";
 
 const App = () => {
   const { darkMode } = useContext(AppContext);
+
   return (
-    <div className={darkMode ? "dark" : "light"}>
+    <div
+      className={darkMode ? "dark" : "light"}
+      style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
+    >
       <Navbar />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/about" element={<About />} />
-        <Route exact path="/projects" element={<Projects />} />
-        <Route exact path='/skills' element={<Skills />} />
-        <Route exact path="/contact" element={<Contact />} />
-      </Routes>
+
+      {/* paddingTop: 64px — Navbar fixed position, content overlap ஆகாம */}
+      <main style={{ flex: 1, paddingTop: "64px" }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* /home → redirect to / */}
+          <Route path="/home" element={<Navigate to="/" replace />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/contact" element={<Contact />} />
+          {/* Any unknown route → home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </main>
+
       <Footer />
     </div>
   );
