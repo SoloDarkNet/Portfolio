@@ -11,6 +11,7 @@ import {
   FaNodeJs,
   FaGitAlt,
   FaDatabase,
+  FaDocker,
 } from "react-icons/fa";
 import { DiVisualstudio } from "react-icons/di";
 
@@ -92,6 +93,10 @@ const skillGroups = [
       {
         label: "Postman",
         icon: <SiPostman style={{ color: "#f18553", fontSize: 15 }} />,
+      },
+      {
+        label: "Docker",
+        icon: <FaDocker style={{ color: "#2496ed", fontSize: 15 }} />,
       },
     ],
   },

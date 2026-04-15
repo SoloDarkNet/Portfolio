@@ -7,6 +7,7 @@ import Footer from "./Components/Footer";
 import About from "./Components/About/about";
 import { AppContext } from "./Context/context";
 import Skills from "./Components/Skills/skills";
+import Certifications from "./Components/Certifications/certification";
 import "./App.css";
 import Home from "./Components/Home/home";
 
@@ -29,8 +30,8 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/skills" element={<Skills />} />
+          <Route path="/certifications" element={<Certifications />} />
           <Route path="/contact" element={<Contact />} />
-          {/* Any unknown route → home */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

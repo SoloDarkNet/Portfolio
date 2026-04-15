@@ -3,6 +3,9 @@ import { AppContext } from "../../Context/context";
 import Hero from "../Hero/hero";
 import About from "../About/about";
 import Skills from "../Skills/skills";
+import Certifications from "../Certifications/certification";
+import Contact from "../Contacts/contact";
+import Projects from "../Projects/projects";
 
 const Home = () => {
   const { darkMode } = useContext(AppContext);
@@ -12,6 +15,9 @@ const Home = () => {
       <Hero />
       <About />
       <Skills />
+      <Projects />
+      <Certifications />
+      <Contact />
     </div>
   );
 };

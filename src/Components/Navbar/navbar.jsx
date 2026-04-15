@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { to: "/about", label: "About" },
   { to: "/skills", label: "Skills" },
   { to: "/projects", label: "Projects" },
+  { to: "/certifications", label: "Certifications" }, // ← add this
   { to: "/contact", label: "Contact" },
 ];
 
