@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { AppContext } from "../../Context/context";
 import {
   FaReact,
@@ -34,14 +34,14 @@ const certs = [
     skills: ["Full Stack", "MERN", "Projects", "DSA"],
     desc: "Completed Full Stack MERN specialization with 600+ coding hours.",
     credentialId: "EIPMEI18MR",
-    pdfPath: "../../../public/assets/IRC.pdf",
+    pdfPath: "/assets/IRC.pdf",
     featured: true,
   },
-
   {
     id: 2,
     title: "React.js Development",
     issuer: "NxtWave",
+    issuerFull: "NxtWave Institute of Advanced Technologies",
     date: "2024",
     type: "frontend",
     icon: <FaReact style={{ fontSize: 26, color: "#34c0c7" }} />,
@@ -51,15 +51,17 @@ const certs = [
     badgeColor: "rgba(52,192,199,0.12)",
     badgeBorder: "rgba(52,192,199,0.3)",
     badgeText: "#34c0c7",
-    skills: ["React", "Hooks"],
-    desc: "Modern React development.",
+    skills: ["React Hooks", "Context API", "Router v5", "PWA", "REST APIs"],
+    desc: "Comprehensive certification covering React ecosystem, component architecture, and modern frontend development patterns.",
     credentialId: "RCT-2024-SOL",
-    pdfPath: "../../../public/assets/React.pdf",
+    pdfPath: "/assets/React.pdf",
+    featured: false,
   },
   {
     id: 3,
     title: "JavaScript (Advanced)",
     issuer: "NxtWave",
+    issuerFull: "NxtWave Institute of Advanced Technologies",
     date: "2024",
     type: "language",
     icon: <FaJs style={{ fontSize: 26, color: "#eab308" }} />,
@@ -69,16 +71,17 @@ const certs = [
     badgeColor: "rgba(234,179,8,0.12)",
     badgeBorder: "rgba(234,179,8,0.3)",
     badgeText: "#eab308",
-    skills: ["JS", "Async"],
-    desc: "Advanced JavaScript concepts.",
+    skills: ["ES6+", "Async/Await", "Closures", "Event Loop", "DOM APIs"],
+    desc: "Advanced JavaScript certification covering core language internals, async patterns, and browser APIs for production-grade apps.",
     credentialId: "JS-2024-SOL",
-    pdfPath: "../../../public/assets/JS ES6.pdf",
+    pdfPath: "/assets/JS ES6.pdf",
+    featured: false,
   },
-
   {
     id: 4,
     title: "Python Programming",
     issuer: "NxtWave",
+    issuerFull: "NxtWave Institute of Advanced Technologies",
     date: "2024",
     type: "language",
     icon: <FaPython style={{ fontSize: 26, color: "#a78bfa" }} />,
@@ -88,16 +91,17 @@ const certs = [
     badgeColor: "rgba(167,139,250,0.12)",
     badgeBorder: "rgba(167,139,250,0.3)",
     badgeText: "#a78bfa",
-    skills: ["Python", "OOP"],
-    desc: "Python programming fundamentals.",
+    skills: ["OOP", "File I/O", "Data Structures", "Modules", "Scripting"],
+    desc: "Python certification covering object-oriented programming, data structures, and scripting for automation and backend tasks.",
     credentialId: "PY-2024-SOL",
-    pdfPath: "../../../public/assets/python.pdf",
+    pdfPath: "/assets/python.pdf",
+    featured: false,
   },
-
   {
     id: 5,
     title: "Node.js Development",
     issuer: "NxtWave",
+    issuerFull: "NxtWave Institute of Advanced Technologies",
     date: "2024",
     type: "backend",
     icon: <SiNestjs style={{ fontSize: 26, color: "#22c55e" }} />,
@@ -107,16 +111,17 @@ const certs = [
     badgeColor: "rgba(34,197,94,0.12)",
     badgeBorder: "rgba(34,197,94,0.3)",
     badgeText: "#22c55e",
-    skills: ["Node.js", "API"],
-    desc: "Backend development using Node.js.",
+    skills: ["Node.js", "Express", "REST API", "Middleware", "NPM"],
+    desc: "Backend development certification covering Node.js, Express framework, REST APIs, and server-side JavaScript patterns.",
     credentialId: "NODE-2024-SOL",
-    pdfPath: "../../../public/assets/node.pdf",
+    pdfPath: "/assets/node.pdf",
+    featured: false,
   },
-
   {
     id: 6,
     title: "Introduction to Databases",
     issuer: "NxtWave",
+    issuerFull: "NxtWave Institute of Advanced Technologies",
     date: "2024",
     type: "database",
     icon: <FaDatabase style={{ fontSize: 26, color: "#3b82f6" }} />,
@@ -126,16 +131,17 @@ const certs = [
     badgeColor: "rgba(59,130,246,0.12)",
     badgeBorder: "rgba(59,130,246,0.3)",
     badgeText: "#3b82f6",
-    skills: ["SQL", "DBMS"],
-    desc: "Database and SQL fundamentals.",
+    skills: ["SQL", "DBMS", "Queries", "Joins", "Normalization"],
+    desc: "Database fundamentals certification covering SQL, relational database design, queries, and data management concepts.",
     credentialId: "SQL-2024-SOL",
-    pdfPath: "../../../public/assets/sql.pdf",
+    pdfPath: "/assets/sql.pdf",
+    featured: false,
   },
-
   {
     id: 7,
     title: "Build Your Own Static Website",
     issuer: "NxtWave",
+    issuerFull: "NxtWave Institute of Advanced Technologies",
     date: "2024",
     type: "frontend",
     icon: <FaHtml5 style={{ fontSize: 26, color: "#f97316" }} />,
@@ -145,16 +151,17 @@ const certs = [
     badgeColor: "rgba(249,115,22,0.12)",
     badgeBorder: "rgba(249,115,22,0.3)",
     badgeText: "#f97316",
-    skills: ["HTML", "CSS"],
-    desc: "Static website development.",
+    skills: ["HTML5", "CSS3", "Layouts", "Selectors", "Box Model"],
+    desc: "Static website development certification covering HTML5, CSS3, page layouts, and building production-ready static sites.",
     credentialId: "STATIC-2024-SOL",
-    pdfPath: "../../../public/assets/static-web.pdf",
+    pdfPath: "/assets/static-web.pdf",
+    featured: false,
   },
-
   {
     id: 8,
     title: "Responsive Web Design",
     issuer: "NxtWave",
+    issuerFull: "NxtWave Institute of Advanced Technologies",
     date: "2024",
     type: "frontend",
     icon: <FaReact style={{ fontSize: 26, color: "#34c0c7" }} />,
@@ -164,16 +171,17 @@ const certs = [
     badgeColor: "rgba(52,192,199,0.12)",
     badgeBorder: "rgba(52,192,199,0.3)",
     badgeText: "#34c0c7",
-    skills: ["Flexbox", "Responsive"],
-    desc: "Responsive UI design.",
+    skills: ["Flexbox", "Media Queries", "Grid", "Mobile First", "Responsive"],
+    desc: "Responsive design certification covering Flexbox, CSS Grid, media queries, and mobile-first development techniques.",
     credentialId: "RESP-2024-SOL",
-    pdfPath: "../../../public/assets/Responsive.pdf",
+    pdfPath: "/assets/Responsive.pdf",
+    featured: false,
   },
-
   {
     id: 9,
     title: "Dynamic Web Application",
     issuer: "NxtWave",
+    issuerFull: "NxtWave Institute of Advanced Technologies",
     date: "2024",
     type: "frontend",
     icon: <FaJs style={{ fontSize: 26, color: "#eab308" }} />,
@@ -183,16 +191,17 @@ const certs = [
     badgeColor: "rgba(234,179,8,0.12)",
     badgeBorder: "rgba(234,179,8,0.3)",
     badgeText: "#eab308",
-    skills: ["JavaScript", "DOM"],
-    desc: "Dynamic UI development.",
+    skills: ["JavaScript", "DOM", "Events", "Fetch API", "Dynamic UI"],
+    desc: "Dynamic web application certification covering JavaScript DOM manipulation, event handling, and building interactive UIs.",
     credentialId: "DYNAMIC-2024-SOL",
-    pdfPath: "../../../public/assets/dynamic-web.pdf",
+    pdfPath: "/assets/Dynamic-web.pdf",
+    featured: false,
   },
-
   {
     id: 10,
     title: "Developer Foundations",
     issuer: "NxtWave",
+    issuerFull: "NxtWave Institute of Advanced Technologies",
     date: "2024",
     type: "foundation",
     icon: <FaCode style={{ fontSize: 26, color: "#6366f1" }} />,
@@ -202,16 +211,17 @@ const certs = [
     badgeColor: "rgba(99,102,241,0.12)",
     badgeBorder: "rgba(99,102,241,0.3)",
     badgeText: "#6366f1",
-    skills: ["Git", "CLI"],
-    desc: "Development basics.",
+    skills: ["Git", "CLI", "VS Code", "Linux", "Problem Solving"],
+    desc: "Developer foundations certification covering version control, command line, development tools, and core programming concepts.",
     credentialId: "FOUND-2024-SOL",
-    pdfPath: "../../../public/assets/Developer-Foundation.pdf",
+    pdfPath: "/assets/Developer-Foundation.pdf",
+    featured: false,
   },
-
   {
     id: 11,
     title: "Bootstrap & Flexbox",
     issuer: "NxtWave",
+    issuerFull: "NxtWave Institute of Advanced Technologies",
     date: "2024",
     type: "frontend",
     icon: <FaBootstrap style={{ fontSize: 26, color: "#7c3aed" }} />,
@@ -221,10 +231,11 @@ const certs = [
     badgeColor: "rgba(124,58,237,0.12)",
     badgeBorder: "rgba(124,58,237,0.3)",
     badgeText: "#7c3aed",
-    skills: ["Bootstrap", "Flexbox"],
-    desc: "UI design with Bootstrap.",
+    skills: ["Bootstrap", "Flexbox", "Grid", "Components", "Utilities"],
+    desc: "UI design certification covering Bootstrap framework, Flexbox layouts, responsive grid systems, and component-driven design.",
     credentialId: "BOOT-2024-SOL",
-    pdfPath: "../../../public/assets/Boot-flex.pdf",
+    pdfPath: "/assets/Boot-flex.pdf",
+    featured: false,
   },
 ];
 
@@ -240,10 +251,6 @@ const shimmerKeyframes = `
   @keyframes certPulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50%       { opacity: 0.5; transform: scale(0.8); }
-  }
-  @keyframes certOrbit {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
   }
   @keyframes certGlow {
     0%, 100% { opacity: 0.4; }
@@ -274,7 +281,6 @@ const FeaturedCard = ({ cert, darkMode }) => {
         animation: "certFloat 5s ease-in-out infinite",
       }}
     >
-      {/* Inner card */}
       <div
         style={{
           borderRadius: "26px",
@@ -286,7 +292,6 @@ const FeaturedCard = ({ cert, darkMode }) => {
           overflow: "hidden",
         }}
       >
-        {/* Shimmer sweep */}
         {hovered && (
           <div
             style={{
@@ -303,8 +308,6 @@ const FeaturedCard = ({ cert, darkMode }) => {
             }}
           />
         )}
-
-        {/* Background glow blob */}
         <div
           style={{
             position: "absolute",
@@ -363,7 +366,6 @@ const FeaturedCard = ({ cert, darkMode }) => {
             zIndex: 1,
           }}
         >
-          {/* Icon circle */}
           <div
             style={{
               width: "clamp(56px, 10vw, 68px)",
@@ -380,7 +382,6 @@ const FeaturedCard = ({ cert, darkMode }) => {
           >
             {cert.icon}
           </div>
-
           <div style={{ flex: 1, minWidth: 0 }}>
             <h3
               style={{
@@ -424,7 +425,6 @@ const FeaturedCard = ({ cert, darkMode }) => {
           </div>
         </div>
 
-        {/* Description */}
         <p
           style={{
             fontSize: "clamp(12px, 2vw, 14px)",
@@ -438,7 +438,6 @@ const FeaturedCard = ({ cert, darkMode }) => {
           {cert.desc}
         </p>
 
-        {/* Skills */}
         <div
           style={{
             display: "flex",
@@ -471,7 +470,7 @@ const FeaturedCard = ({ cert, darkMode }) => {
           ))}
         </div>
 
-        {/* Bottom credential row */}
+        {/* Bottom row */}
         <div
           style={{
             display: "flex",
@@ -496,7 +495,6 @@ const FeaturedCard = ({ cert, darkMode }) => {
           >
             ID: {cert.credentialId}
           </span>
-
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <div
               style={{
@@ -513,8 +511,6 @@ const FeaturedCard = ({ cert, darkMode }) => {
               <FaMedal style={{ fontSize: 12 }} />
               Verified
             </div>
-
-            {/* View Certificate Button */}
             <a
               href={cert.pdfPath}
               target="_blank"
@@ -563,7 +559,7 @@ const MiniCard = ({ cert, darkMode, index }) => {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
-        delay: 0.3 + index * 0.12,
+        delay: 0.3 + index * 0.08,
         duration: 0.55,
         ease: "easeOut",
       }}
@@ -595,7 +591,6 @@ const MiniCard = ({ cert, darkMode, index }) => {
         gap: "14px",
       }}
     >
-      {/* Shimmer on hover */}
       {hovered && (
         <div
           style={{
@@ -612,8 +607,6 @@ const MiniCard = ({ cert, darkMode, index }) => {
           }}
         />
       )}
-
-      {/* Accent top bar */}
       <div
         style={{
           position: "absolute",
@@ -627,8 +620,6 @@ const MiniCard = ({ cert, darkMode, index }) => {
           transition: "opacity 0.3s ease",
         }}
       />
-
-      {/* Glow blob */}
       <div
         style={{
           position: "absolute",
@@ -644,7 +635,7 @@ const MiniCard = ({ cert, darkMode, index }) => {
         }}
       />
 
-      {/* Header row */}
+      {/* Header */}
       <div
         style={{
           display: "flex",
@@ -713,7 +704,6 @@ const MiniCard = ({ cert, darkMode, index }) => {
         </div>
       </div>
 
-      {/* Desc */}
       <p
         style={{
           fontSize: "clamp(11px, 2vw, 12px)",
@@ -727,7 +717,6 @@ const MiniCard = ({ cert, darkMode, index }) => {
         {cert.desc}
       </p>
 
-      {/* Skills */}
       <div
         style={{
           display: "flex",
@@ -760,7 +749,6 @@ const MiniCard = ({ cert, darkMode, index }) => {
         ))}
       </div>
 
-      {/* View Certificate Button */}
       <a
         href={cert.pdfPath}
         target="_blank"
@@ -800,7 +788,6 @@ const MiniCard = ({ cert, darkMode, index }) => {
 
 const Certifications = () => {
   const { darkMode } = useContext(AppContext);
-
   const featured = certs.filter((c) => c.featured);
   const others = certs.filter((c) => !c.featured);
 
@@ -818,7 +805,6 @@ const Certifications = () => {
     >
       <style>{shimmerKeyframes}</style>
 
-      {/* Orb decorations */}
       <div
         style={{
           position: "absolute",
@@ -858,7 +844,7 @@ const Certifications = () => {
           zIndex: 1,
         }}
       >
-        {/* ── Section Header ── */}
+        {/* Header */}
         <motion.div
           style={{
             textAlign: "center",
@@ -887,7 +873,6 @@ const Certifications = () => {
           >
             Achievements
           </div>
-
           <h2
             style={{
               fontSize: "clamp(1.8rem, 5.5vw, 3rem)",
@@ -910,7 +895,6 @@ const Certifications = () => {
               Awards
             </span>
           </h2>
-
           <p
             style={{
               fontSize: "clamp(13px, 2.5vw, 15px)",
@@ -923,7 +907,6 @@ const Certifications = () => {
             Verified credentials from structured learning — full-stack
             development, core languages & industry readiness.
           </p>
-
           <div
             style={{
               width: "48px",
@@ -935,7 +918,7 @@ const Certifications = () => {
           />
         </motion.div>
 
-        {/* ── Stats strip ── */}
+        {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -949,7 +932,7 @@ const Certifications = () => {
           }}
         >
           {[
-            { num: certs.length - 1, label: "Certifications" },
+            { num: "11", label: "Certifications" },
             { num: "1", label: "Industry Ready" },
             { num: "NxtWave", label: "Institute" },
           ].map((stat) => (
@@ -979,7 +962,7 @@ const Certifications = () => {
           ))}
         </motion.div>
 
-        {/* ── Featured cert ── */}
+        {/* Featured */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -991,7 +974,7 @@ const Certifications = () => {
           ))}
         </motion.div>
 
-        {/* ── Divider ── */}
+        {/* Divider */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -1034,7 +1017,7 @@ const Certifications = () => {
           />
         </motion.div>
 
-        {/* ── Mini cards grid ── */}
+        {/* Grid */}
         <div
           style={{
             display: "grid",
