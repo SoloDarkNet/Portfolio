@@ -34,7 +34,7 @@ const certs = [
     skills: ["Full Stack", "MERN", "Projects", "DSA"],
     desc: "Completed Full Stack MERN specialization with 600+ coding hours.",
     credentialId: "EIPMEI18MR",
-    pdfPath: "/src/assets/IRC.pdf",
+    pdfPath: "../../../public/assets/IRC.pdf",
     featured: true,
   },
 
@@ -54,7 +54,7 @@ const certs = [
     skills: ["React", "Hooks"],
     desc: "Modern React development.",
     credentialId: "RCT-2024-SOL",
-    pdfPath: "/src/assets/React.pdf",
+    pdfPath: "../../../public/assets/React.pdf",
   },
   {
     id: 3,
@@ -72,7 +72,7 @@ const certs = [
     skills: ["JS", "Async"],
     desc: "Advanced JavaScript concepts.",
     credentialId: "JS-2024-SOL",
-    pdfPath: "/src/assets/JS ES6.pdf",
+    pdfPath: "../../../public/assets/JS ES6.pdf",
   },
 
   {
@@ -91,7 +91,7 @@ const certs = [
     skills: ["Python", "OOP"],
     desc: "Python programming fundamentals.",
     credentialId: "PY-2024-SOL",
-    pdfPath: "/src/assets/python.pdf",
+    pdfPath: "../../../public/assets/python.pdf",
   },
 
   {
@@ -110,7 +110,7 @@ const certs = [
     skills: ["Node.js", "API"],
     desc: "Backend development using Node.js.",
     credentialId: "NODE-2024-SOL",
-    pdfPath: "/src/assets/node.pdf",
+    pdfPath: "../../../public/assets/node.pdf",
   },
 
   {
@@ -129,7 +129,7 @@ const certs = [
     skills: ["SQL", "DBMS"],
     desc: "Database and SQL fundamentals.",
     credentialId: "SQL-2024-SOL",
-    pdfPath: "/src/assets/sql.pdf",
+    pdfPath: "../../../public/assets/sql.pdf",
   },
 
   {
@@ -148,7 +148,7 @@ const certs = [
     skills: ["HTML", "CSS"],
     desc: "Static website development.",
     credentialId: "STATIC-2024-SOL",
-    pdfPath: "/src/assets/static-web.pdf",
+    pdfPath: "../../../public/assets/static-web.pdf",
   },
 
   {
@@ -167,7 +167,7 @@ const certs = [
     skills: ["Flexbox", "Responsive"],
     desc: "Responsive UI design.",
     credentialId: "RESP-2024-SOL",
-    pdfPath: "/src/assets/Responsive.pdf",
+    pdfPath: "../../../public/assets/Responsive.pdf",
   },
 
   {
@@ -186,7 +186,7 @@ const certs = [
     skills: ["JavaScript", "DOM"],
     desc: "Dynamic UI development.",
     credentialId: "DYNAMIC-2024-SOL",
-    pdfPath: "/src/assets/dynamic-web.pdf",
+    pdfPath: "../../../public/assets/dynamic-web.pdf",
   },
 
   {
@@ -205,7 +205,7 @@ const certs = [
     skills: ["Git", "CLI"],
     desc: "Development basics.",
     credentialId: "FOUND-2024-SOL",
-    pdfPath: "/src/assets/Developer-Foundation.pdf",
+    pdfPath: "../../../public/assets/Developer-Foundation.pdf",
   },
 
   {
@@ -224,7 +224,7 @@ const certs = [
     skills: ["Bootstrap", "Flexbox"],
     desc: "UI design with Bootstrap.",
     credentialId: "BOOT-2024-SOL",
-    pdfPath: "/src/assets/Boot-flex.pdf",
+    pdfPath: "../../../public/assets/Boot-flex.pdf",
   },
 ];
 

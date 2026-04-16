@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { motion } from "framer-motion";
 import { AppContext } from "../../Context/context";
-import Solomon from "../../assets/solomon.png";
+import Solomon from "../../../public/assets/solomon.png";
 
 const highlights = [
   { icon: "⚡", label: "Full Stack", desc: "MERN end-to-end" },
