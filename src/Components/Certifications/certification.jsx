@@ -42,7 +42,7 @@ const certs = [
     title: "React.js Development",
     issuer: "NxtWave",
     issuerFull: "NxtWave Institute of Advanced Technologies",
-    date: "2024",
+    date: "May 2025",
     type: "frontend",
     icon: <FaReact style={{ fontSize: 26, color: "#34c0c7" }} />,
     accentFrom: "#34c0c7",
@@ -62,7 +62,7 @@ const certs = [
     title: "JavaScript (Advanced)",
     issuer: "NxtWave",
     issuerFull: "NxtWave Institute of Advanced Technologies",
-    date: "2024",
+    date: "Nov 2024",
     type: "language",
     icon: <FaJs style={{ fontSize: 26, color: "#eab308" }} />,
     accentFrom: "#eab308",
@@ -82,7 +82,7 @@ const certs = [
     title: "Python Programming",
     issuer: "NxtWave",
     issuerFull: "NxtWave Institute of Advanced Technologies",
-    date: "2024",
+    date: "Sep 2024",
     type: "language",
     icon: <FaPython style={{ fontSize: 26, color: "#a78bfa" }} />,
     accentFrom: "#a78bfa",
@@ -102,7 +102,7 @@ const certs = [
     title: "Node.js Development",
     issuer: "NxtWave",
     issuerFull: "NxtWave Institute of Advanced Technologies",
-    date: "2024",
+    date: "Jan 2025",
     type: "backend",
     icon: <SiNestjs style={{ fontSize: 26, color: "#22c55e" }} />,
     accentFrom: "#22c55e",
@@ -122,7 +122,7 @@ const certs = [
     title: "Introduction to Databases",
     issuer: "NxtWave",
     issuerFull: "NxtWave Institute of Advanced Technologies",
-    date: "2024",
+    date: "Aug 2024",
     type: "database",
     icon: <FaDatabase style={{ fontSize: 26, color: "#3b82f6" }} />,
     accentFrom: "#3b82f6",
@@ -142,7 +142,7 @@ const certs = [
     title: "Build Your Own Static Website",
     issuer: "NxtWave",
     issuerFull: "NxtWave Institute of Advanced Technologies",
-    date: "2024",
+    date: "June 2024",
     type: "frontend",
     icon: <FaHtml5 style={{ fontSize: 26, color: "#f97316" }} />,
     accentFrom: "#f97316",
@@ -162,7 +162,7 @@ const certs = [
     title: "Responsive Web Design",
     issuer: "NxtWave",
     issuerFull: "NxtWave Institute of Advanced Technologies",
-    date: "2024",
+    date: "Dec 2024",
     type: "frontend",
     icon: <FaReact style={{ fontSize: 26, color: "#34c0c7" }} />,
     accentFrom: "#34c0c7",
@@ -182,7 +182,7 @@ const certs = [
     title: "Dynamic Web Application",
     issuer: "NxtWave",
     issuerFull: "NxtWave Institute of Advanced Technologies",
-    date: "2024",
+    date: "Dec 2024",
     type: "frontend",
     icon: <FaJs style={{ fontSize: 26, color: "#eab308" }} />,
     accentFrom: "#eab308",
@@ -202,7 +202,7 @@ const certs = [
     title: "Developer Foundations",
     issuer: "NxtWave",
     issuerFull: "NxtWave Institute of Advanced Technologies",
-    date: "2024",
+    date: "Nov 2024",
     type: "foundation",
     icon: <FaCode style={{ fontSize: 26, color: "#6366f1" }} />,
     accentFrom: "#6366f1",
@@ -222,7 +222,7 @@ const certs = [
     title: "Bootstrap & Flexbox",
     issuer: "NxtWave",
     issuerFull: "NxtWave Institute of Advanced Technologies",
-    date: "2024",
+    date: "June 2024",
     type: "frontend",
     icon: <FaBootstrap style={{ fontSize: 26, color: "#7c3aed" }} />,
     accentFrom: "#7c3aed",
@@ -791,6 +791,8 @@ const Certifications = () => {
   const featured = certs.filter((c) => c.featured);
   const others = certs.filter((c) => !c.featured);
 
+  const totalCerts = certs.length - 1;
+
   return (
     <div
       style={{
@@ -932,7 +934,7 @@ const Certifications = () => {
           }}
         >
           {[
-            { num: "11", label: "Certifications" },
+            { num: totalCerts.toString(), label: "Certifications" },
             { num: "1", label: "Industry Ready" },
             { num: "NxtWave", label: "Institute" },
           ].map((stat) => (
