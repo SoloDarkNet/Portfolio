@@ -1,8 +1,210 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useContext } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AppContext } from "../../Context/context";
 
+// ── Particle Canvas ──────────────────────────────────────────────
+const ParticleCanvas = ({ darkMode }) => {
+  const canvasRef = useRef(null);
+  const animRef = useRef(null);
+  const particlesRef = useRef([]);
+  const mouseRef = useRef({ x: -9999, y: -9999 });
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    // Create particles
+    const COUNT = Math.min(
+      90,
+      Math.floor((window.innerWidth * window.innerHeight) / 14000),
+    );
+    particlesRef.current = Array.from({ length: COUNT }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      r: Math.random() * 1.6 + 0.4,
+      opacity: Math.random() * 0.5 + 0.15,
+      pulseSpeed: Math.random() * 0.02 + 0.008,
+      pulseOffset: Math.random() * Math.PI * 2,
+    }));
+
+    let frame = 0;
+
+    const draw = () => {
+      frame++;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const particles = particlesRef.current;
+      const mx = mouseRef.current.x;
+      const my = mouseRef.current.y;
+      const REPEL = 90;
+
+      // Draw connections first
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 100) {
+            const alpha = (1 - dist / 100) * 0.12;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = darkMode
+              ? `rgba(55,138,221,${alpha})`
+              : `rgba(55,138,221,${alpha * 0.6})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw & update particles
+      for (let p of particles) {
+        // Mouse repel
+        const dx = p.x - mx;
+        const dy = p.y - my;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < REPEL && dist > 0) {
+          const force = (REPEL - dist) / REPEL;
+          p.vx += (dx / dist) * force * 0.6;
+          p.vy += (dy / dist) * force * 0.6;
+        }
+
+        // Dampen velocity
+        p.vx *= 0.98;
+        p.vy *= 0.98;
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Wrap edges
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+
+        // Pulsing opacity
+        const pulse = Math.sin(frame * p.pulseSpeed + p.pulseOffset) * 0.2;
+        const finalOpacity = Math.max(0.05, p.opacity + pulse);
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = darkMode
+          ? `rgba(120,190,255,${finalOpacity})`
+          : `rgba(55,138,221,${finalOpacity * 0.7})`;
+        ctx.fill();
+      }
+
+      animRef.current = requestAnimationFrame(draw);
+    };
+
+    draw();
+
+    const handleMouseMove = (e) => {
+      mouseRef.current = { x: e.clientX, y: e.clientY };
+    };
+    const handleTouchMove = (e) => {
+      if (e.touches[0]) {
+        mouseRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      }
+    };
+    const handleLeave = () => {
+      mouseRef.current = { x: -9999, y: -9999 };
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("mouseleave", handleLeave);
+
+    return () => {
+      cancelAnimationFrame(animRef.current);
+      window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("mouseleave", handleLeave);
+    };
+  }, [darkMode]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        pointerEvents: "none",
+        zIndex: 0,
+        opacity: darkMode ? 1 : 0.6,
+      }}
+    />
+  );
+};
+
+// ── Tap-aware Button Wrapper ─────────────────────────────────────
+const TapButton = ({
+  children,
+  style,
+  onClick,
+  as: Tag = "button",
+  to,
+  ...props
+}) => {
+  const [pressed, setPressed] = useState(false);
+
+  const pressStyle = pressed
+    ? { transform: "scale(0.96) translateY(1px)", filter: "brightness(0.92)" }
+    : {};
+
+  if (Tag === Link) {
+    return (
+      <Link
+        to={to}
+        style={{
+          ...style,
+          ...pressStyle,
+          transition: "transform 0.12s ease, filter 0.12s ease",
+        }}
+        onTouchStart={() => setPressed(true)}
+        onTouchEnd={() => setPressed(false)}
+        onTouchCancel={() => setPressed(false)}
+        {...props}
+      >
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <Tag
+      onClick={onClick}
+      style={{
+        ...style,
+        ...pressStyle,
+        transition: "transform 0.12s ease, filter 0.12s ease",
+      }}
+      onTouchStart={() => setPressed(true)}
+      onTouchEnd={() => setPressed(false)}
+      onTouchCancel={() => setPressed(false)}
+      {...props}
+    >
+      {children}
+    </Tag>
+  );
+};
+
+// ── Hero ─────────────────────────────────────────────────────────
 const Hero = () => {
   const { darkMode } = useContext(AppContext);
 
@@ -41,6 +243,7 @@ const Hero = () => {
       top: "-10%",
       right: "-10%",
       pointerEvents: "none",
+      zIndex: 0,
     },
     orb2: {
       position: "absolute",
@@ -53,6 +256,7 @@ const Hero = () => {
       bottom: "5%",
       left: "-5%",
       pointerEvents: "none",
+      zIndex: 0,
     },
     inner: {
       position: "relative",
@@ -187,7 +391,40 @@ const Hero = () => {
           0%, 100% { opacity: 1; transform: scale(1); }
           50% { opacity: 0.5; transform: scale(0.85); }
         }
+
+        /* Desktop hover effects */
+        @media (hover: hover) {
+          .btn-primary:hover {
+            transform: scale(1.05) translateY(-2px) !important;
+            box-shadow: 0 8px 28px rgba(55,138,221,0.55) !important;
+          }
+          .btn-outline:hover {
+            transform: scale(1.05) translateY(-2px) !important;
+            background: ${darkMode ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,1)"} !important;
+          }
+        }
+
+        /* Mobile tap ripple */
+        .btn-primary, .btn-outline {
+          transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.15s ease !important;
+          -webkit-tap-highlight-color: transparent;
+          user-select: none;
+        }
+
+        /* Active state for touch devices */
+        .btn-primary:active {
+          transform: scale(0.96) !important;
+          box-shadow: 0 2px 10px rgba(55,138,221,0.3) !important;
+        }
+        .btn-outline:active {
+          transform: scale(0.96) !important;
+          opacity: 0.8 !important;
+        }
       `}</style>
+
+      {/* Particle background */}
+      <ParticleCanvas darkMode={darkMode} />
+
       <div style={styles.orb1} />
       <div style={styles.orb2} />
 
@@ -215,27 +452,39 @@ const Hero = () => {
         <motion.div variants={itemVariants} style={styles.btnRow}>
           <motion.div
             whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.97 }}
+            whileTap={{ scale: 0.96 }}
           >
-            <Link to="/projects" style={{ ...styles.btnPrimary }}>
+            <Link
+              to="/projects"
+              style={styles.btnPrimary}
+              className="btn-primary"
+            >
               View Projects →
             </Link>
           </motion.div>
 
           <motion.div
             whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.97 }}
+            whileTap={{ scale: 0.96 }}
           >
-            <button onClick={downloadResume} style={styles.btnOutline}>
+            <button
+              onClick={downloadResume}
+              style={styles.btnOutline}
+              className="btn-outline"
+            >
               ↓ Resume
             </button>
           </motion.div>
 
           <motion.div
             whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.97 }}
+            whileTap={{ scale: 0.96 }}
           >
-            <button onClick={gitHubLink} style={styles.btnOutline}>
+            <button
+              onClick={gitHubLink}
+              style={styles.btnOutline}
+              className="btn-outline"
+            >
               ⌥ GitHub
             </button>
           </motion.div>
