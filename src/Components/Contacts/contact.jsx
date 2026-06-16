@@ -256,7 +256,7 @@ const Contact = () => {
             Contact <span style={s.accent}>Me</span>
           </h2>
           <p style={s.subtext}>
-            Open to full-time roles in Chennai, Bangalore, Hyderabad & Kochi.
+            Available for full-time opportunities in India and internationally.
           </p>
           <div style={s.divider} />
         </motion.div>
